@@ -65,26 +65,35 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.45f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Systems\BaseInputSystem.cs" />
-    <Compile Include="Assets\Scripts\Player\ResourceKeys.cs" />
-    <Compile Include="Assets\Scripts\Components\EnemyIde.cs" />
-    <Compile Include="Assets\Scripts\Components\PoolingManager\PoolingManger.cs" />
-    <Compile Include="Assets\Scripts\Components\IMovable.cs" />
-    <Compile Include="Assets\Scripts\Components\ResourceProvider\BundlesProvider.cs" />
-    <Compile Include="Assets\Scripts\Components\ResourceProvider\AddresablesProvider.cs" />
-    <Compile Include="Assets\Scripts\Components\Container\IObjectContainer.cs" />
-    <Compile Include="Assets\Scripts\Player\Move\InputSystem.cs" />
-    <Compile Include="Assets\Scripts\Components\PoolingManager\IPoolingManager.cs" />
-    <Compile Include="Assets\Scripts\Components\ResourceProvider\WebResourceProvider.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\PoolingManager\IPoolingManager.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\IResourceProvider.cs" />
+    <Compile Include="Assets\Scripts\Components\Player.cs" />
+    <Compile Include="Assets\Scripts\ESCStartUp.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerAttackSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerInputSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\PlayerInputData.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\BundlesProvider.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerJumpSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerMoveSystem.cs" />
     <Compile Include="Assets\InputSystem_Actions.cs" />
-    <Compile Include="Assets\Scripts\Components\ResourceProvider\IResourceProvider.cs" />
-    <Compile Include="Assets\Scripts\Components\IInteractable.cs" />
-    <Compile Include="Assets\Scripts\Components\Container\ObjectContainer.cs" />
-    <Compile Include="Assets\Scripts\Components\StartUpComponenet.cs" />
-    <Compile Include="Assets\Scripts\Systems\IInputSystem.cs" />
-    <Compile Include="Assets\Scripts\Components\ResourceProvider\ResourceProvider.cs" />
-    <Compile Include="Assets\Scripts\Player\Move\PlayerControll.cs" />
-    <Compile Include="Assets\Scripts\Extensions\StackExtensions.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\ResourceProvider.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerBlockAttackSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\StaticData.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\PoolingManager\PoolingManger.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerInitSystem.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\Container\IObjectContainer.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\IInputSystem.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\InputSystem.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\Container\ObjectContainer.cs" />
+    <Compile Include="Assets\Scripts\Components\SceneData.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\StackExtensions.cs" />
+    <Compile Include="Assets\Scripts\Components\AttackSettings.cs" />
+    <Compile Include="Assets\Scripts\Components\BlockAttack.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\WebResourceProvider.cs" />
+    <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\AddresablesProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Scripts\TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
