@@ -24,6 +24,8 @@ public class ESCStartUp : MonoBehaviour
         FixedUpdateSystems = new(World);
         InitPlayerUpdateSystems();
         InitPlayerFixedUpdateSystems();
+
+        GlobalSystems();
         container = new ObjectsContainer();
 
         UpdateSystems.Inject(container);
@@ -42,6 +44,14 @@ public class ESCStartUp : MonoBehaviour
             .Add(new PlayerBlockAttackSystem())
             .Inject(configuration)
             .Inject(sceneData);
+    }
+
+    private void GlobalSystems()
+    {
+        UpdateSystems
+            .Add(new LookSystem())
+            .Add(new DashSystem())
+            .Add(new BlockMoveSystem());
     }
 
     private void InitPlayerFixedUpdateSystems()

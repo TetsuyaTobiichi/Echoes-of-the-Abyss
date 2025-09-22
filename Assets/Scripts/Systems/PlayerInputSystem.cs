@@ -6,8 +6,10 @@ namespace Systems
 {
     public class PlayerInputSystem : IEcsInitSystem
     {
-        private EcsFilter<PlayerInputData> _filter;
+        private EcsFilter<Player, PlayerInputData> _filter;
         private IInputSystem _inputSystem;
+
+        private EcsEntity _player;
         public void Init()
         {
             var input = new InputSystem();
@@ -24,36 +26,44 @@ namespace Systems
             foreach (var i in _filter)
             {
                 int idx = i;
+                _player = _filter.GetEntity(idx);
                 _inputSystem.Input.Player.Move.performed += (cbc) => OnMovePerformed(cbc, idx);
                 _inputSystem.Input.Player.Move.canceled += (cbc) => OnMoveCanceled(cbc, idx);
                 _inputSystem.Input.Player.Jump.performed += (cbc) => OnJumpPerformed(cbc, idx);
                 _inputSystem.Input.Player.Attack.performed += (cbc) => OnAttackPerforemed(cbc, idx);
+                _inputSystem.Input.Player.Sprint.performed += (cbc) => OnDashPerformed(cbc, idx);
             }
         }
 
         private void OnMovePerformed(CallbackContext context, int idx)
         {
-            ref var inputRef = ref _filter.Get1(idx);
-            inputRef.Direction = context.ReadValue<Vector2>();
+            ref var inputRef = ref _player.Get<MoveInfo>();
+            inputRef.DirectionX = context.ReadValue<Vector2>().x;
         }
 
         private void OnMoveCanceled(CallbackContext context, int idx)
         {
-            ref var inputRef = ref _filter.Get1(idx);
-            inputRef.Direction = Vector2.zero;
+            ref var inputRef = ref _player.Get<MoveInfo>();
+            inputRef.DirectionX = 0;
         }
 
         private void OnJumpPerformed(CallbackContext context, int idx)
         {
-            ref var inputRef = ref _filter.Get1(idx);
-            inputRef.IsJumped = true;
+            ref var inputRef = ref _player.Get<JumpInfo>();
+            inputRef.IsJumping = true;
         }
 
         private void OnAttackPerforemed(CallbackContext context, int idx)
         {
             Debug.Log("here");
-            ref var inputRef = ref _filter.Get1(idx);
+            ref var inputRef = ref _player.Get<PlayerInputData>();
             inputRef.IsAttacked = true;
+        }
+
+        private void OnDashPerformed(CallbackContext context, int idx)
+        {
+            ref var dashInfo = ref _player.Get<Dash>();
+            dashInfo.IsDashing = true;
         }
 
     }

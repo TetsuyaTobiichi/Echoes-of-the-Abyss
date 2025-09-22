@@ -5,16 +5,17 @@ namespace Systems
 {
     public class PlayerMoveSystem : IEcsRunSystem
     {
-        private EcsFilter<Player, PlayerInputData> filter;
+        private EcsFilter<Player, EntityInfo, MoveInfo>.Exclude<BlockMove> filter;
 
         public void Run()
         {
             foreach (var i in filter)
             {
                 ref Player player = ref filter.Get1(i);
-                ref PlayerInputData input = ref filter.Get2(i);
+                ref EntityInfo entityInfo = ref filter.Get2(i);
+                ref MoveInfo moveInfo = ref filter.Get3(i);
 
-                player.PlayerRigidbody.linearVelocityX = input.Direction.x * player.PlayerMoveSpeed;
+                entityInfo.PlayerRigidbody.linearVelocityX = moveInfo.DirectionX * moveInfo.MoveSpeed;
             }
         }
     }

@@ -16,12 +16,19 @@ namespace Systems
 
             ref var player = ref playerEntity.Get<Player>();
             ref var inputData = ref playerEntity.Get<PlayerInputData>();
+            ref var moveInfo = ref playerEntity.Get<MoveInfo>();
+            ref var JumpInfo = ref playerEntity.Get<JumpInfo>();
+            ref var EntityInfo = ref playerEntity.Get<EntityInfo>();
+            ref var LookParams = ref playerEntity.Get<LookParams>();
+            ref var Dash = ref playerEntity.Get<Dash>();
 
             GameObject playerGO = Object.Instantiate(staticData.PlayerPrefab, sceneData.playerSpawnPoint.position, Quaternion.identity);
-            player.PlayerRigidbody = playerGO.GetComponent<Rigidbody2D>();
-            player.PlayerMoveSpeed = staticData.PlayerMoveSpeed;
-            player.PlayerJumpForce = staticData.PlayerJumpForce;
+            EntityInfo.PlayerRigidbody = playerGO.GetComponent<Rigidbody2D>();
+            moveInfo.MoveSpeed = staticData.PlayerMoveSpeed;
+            JumpInfo.JumpForce = staticData.PlayerJumpForce;
             player.AttackSettings = staticData.AttackSettings;
+            LookParams.LookDirection = Vector2.right;
+            Dash.DashForce = 5f;
         }
     }
 }
