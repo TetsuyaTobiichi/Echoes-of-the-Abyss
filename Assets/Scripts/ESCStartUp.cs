@@ -42,6 +42,8 @@ public class ESCStartUp : MonoBehaviour
             .Add(new PlayerInputSystem())
             .Add(new PlayerAttackSystem())
             .Add(new PlayerBlockAttackSystem())
+            .Add(new PlayerGroundCheckSystem())
+            .Add(new PlayerWallSlideingSystem())
             .Inject(configuration)
             .Inject(sceneData);
     }

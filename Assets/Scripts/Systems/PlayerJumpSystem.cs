@@ -6,7 +6,7 @@ namespace Systems
 {
     public class PlayerJumpSystem : IEcsRunSystem
     {
-        private EcsFilter<Player, EntityInfo, JumpInfo> filter;
+        private EcsFilter<Player, EntityInfo, JumpInfo, GroundChecker> filter;
         //position under player prefab, for check ground collision
         private static readonly Vector3 _groundCheckerPosition = new Vector3(0, 0.265f, 0);
         private static int mask = ~LayerMask.GetMask("Player", "Enemy");
@@ -18,26 +18,17 @@ namespace Systems
                 ref Player player = ref filter.Get1(i);
                 ref EntityInfo entityInfo = ref filter.Get2(i);
                 ref JumpInfo JumpInfo = ref filter.Get3(i);
-
-#if UNITY_EDITOR
-                Vector2 checkPos = entityInfo.PlayerRigidbody.transform.TransformPoint(_groundCheckerPosition);
-                float checkDistance = 0.2f;
-
-                Debug.DrawRay(checkPos, Vector2.down * checkDistance, Color.red, 0.02f);
-
-                RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, checkDistance);
-#endif  
+                ref GroundChecker groundChecker = ref filter.Get4(i);
 
                 if (JumpInfo.IsJumping)
                 {
-                    if (Physics2D.Raycast(
-                        entityInfo.PlayerRigidbody.transform.TransformPoint(_groundCheckerPosition),
-                        Vector2.down, 0.2f, mask))
+                    if (groundChecker.IsGrounded)
                     {
                         Debug.Log($"PlayerJumpSystem: jumped");
                         entityInfo.PlayerRigidbody.linearVelocityY = 0;
                         entityInfo.PlayerRigidbody.AddForce(Vector2.up * JumpInfo.JumpForce, ForceMode2D.Impulse);
                     }
+
                     JumpInfo.IsJumping = false;
                 }
             }
