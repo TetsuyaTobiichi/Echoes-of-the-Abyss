@@ -25,7 +25,7 @@ public class PlayerGroundCheckSystem : IEcsRunSystem
 
             if (Physics2D.Raycast(
                 entityInfo.PlayerRigidbody.transform.TransformPoint(groundChecker.CheckerPosition),
-                Vector2.down, 0.2f, mask))
+                Vector2.down, checkDistance, mask))
             {
                 groundChecker.IsGrounded = true;
             }

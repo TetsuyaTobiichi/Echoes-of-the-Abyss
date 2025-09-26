@@ -18,7 +18,7 @@ namespace Systems
 
                 if (moveInfo.DirectionX != 0)
                 {
-                    lookParams.LookDirection = Vector2.right * moveInfo.DirectionX;
+                    lookParams.LookDirection = moveInfo.DirectionX > 0 ? Vector2.right : Vector2.left;
                     entityInfo.PlayerRigidbody.transform.rotation = moveInfo.DirectionX > 0 ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 180f, 0f);
                 }
             }

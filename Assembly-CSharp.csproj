@@ -73,9 +73,12 @@
     <Compile Include="Assets\Scripts\Systems\DashSystem.cs" />
     <Compile Include="Assets\Scripts\Components\GroundChecker.cs" />
     <Compile Include="Assets\Scripts\Components\WallSlide.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerWallJumpSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\PlayerWallCheckSystem.cs" />
     <Compile Include="Assets\Scripts\Components\MoveInfo.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerAttackSystem.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerInputSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\WallChecker.cs" />
     <Compile Include="Assets\Scripts\Systems\LookSystem.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\BundlesProvider.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerGroundCheckSystem.cs" />

@@ -39,11 +39,14 @@ public class ESCStartUp : MonoBehaviour
     {
         UpdateSystems
             .Add(new PlayerInitSystem())
+            .Add(new PlayerGroundCheckSystem())
+
             .Add(new PlayerInputSystem())
             .Add(new PlayerAttackSystem())
             .Add(new PlayerBlockAttackSystem())
-            .Add(new PlayerGroundCheckSystem())
             .Add(new PlayerWallSlideingSystem())
+            .Add(new PlayerWallJumpSystem())
+            .Add(new PlayerWallCheckSystem())
             .Inject(configuration)
             .Inject(sceneData);
     }

@@ -23,6 +23,7 @@ namespace Systems
             ref var Dash = ref playerEntity.Get<Dash>();
             ref var GroundChecker = ref playerEntity.Get<GroundChecker>();
             ref var WallSlide = ref playerEntity.Get<WallSlide>();
+            ref var WallChecker = ref playerEntity.Get<WallCheker>();
 
             GameObject playerGO = Object.Instantiate(staticData.PlayerPrefab, sceneData.playerSpawnPoint.position, Quaternion.identity);
             EntityInfo.PlayerRigidbody = playerGO.GetComponent<Rigidbody2D>();
@@ -34,6 +35,7 @@ namespace Systems
             //TODO: think how automate it
             GroundChecker.CheckerPosition = new Vector3(0, 0.265f, 0);
             WallSlide.SlideMaxSpeed = 0.2f;
+            WallChecker.CheckerPosition = new Vector3(0, 0.75f, 0);
         }
     }
 }
