@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Components\EntityInfo.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\PoolingManager\IPoolingManager.cs" />
     <Compile Include="Assets\Scripts\Components\Dash.cs" />
+    <Compile Include="Assets\Scripts\Events\JumpEvent.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\ResourceProvider\IResourceProvider.cs" />
     <Compile Include="Assets\Scripts\ESCStartUp.cs" />
     <Compile Include="Assets\Scripts\Systems\DashSystem.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\Container\IObjectContainer.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerWallSlideingSystem.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\IInputSystem.cs" />
+    <Compile Include="Assets\Scripts\Events\AttackEvent.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\InputSystem.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\Container\ObjectContainer.cs" />
     <Compile Include="Assets\Scripts\Components\SceneData.cs" />

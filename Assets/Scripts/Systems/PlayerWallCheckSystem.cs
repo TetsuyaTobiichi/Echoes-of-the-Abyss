@@ -24,14 +24,7 @@ public class PlayerWallCheckSystem : IEcsRunSystem
             Debug.DrawRay(checkPos, lookParams.LookDirection * 0.2f, Color.red, 0.001f);
 #endif
 
-            if (Physics2D.Raycast(checkPos, lookParams.LookDirection, 0.3f, mask))
-            {
-                wallCheker.IsNearwall = true;
-            }
-            else
-            {
-                wallCheker.IsNearwall = false;
-            }
+            wallCheker.IsNearwall = Physics2D.Raycast(checkPos, lookParams.LookDirection, 0.3f, mask);
         }
     }
 }

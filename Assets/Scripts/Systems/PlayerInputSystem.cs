@@ -1,4 +1,5 @@
 using Components;
+using Components.Events;
 using Leopotam.Ecs;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
@@ -49,13 +50,15 @@ namespace Systems
 
         private void OnJumpPerformed(CallbackContext context, int idx)
         {
-            ref var inputRef = ref _player.Get<JumpInfo>();
-            inputRef.IsJumping = true;
+            _player.Get<JumpEvent>();
         }
-
+        /// <summary>
+        /// TODO: remake on AttackEvent n dashEvent
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="idx"></param>
         private void OnAttackPerforemed(CallbackContext context, int idx)
         {
-            Debug.Log("here");
             ref var inputRef = ref _player.Get<PlayerInputData>();
             inputRef.IsAttacked = true;
         }

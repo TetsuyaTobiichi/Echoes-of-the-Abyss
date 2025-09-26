@@ -1,5 +1,6 @@
 using Components;
 using Components.Container;
+using Components.Events;
 using Leopotam.Ecs;
 using Systems;
 using UnityEngine;
@@ -40,13 +41,12 @@ public class ESCStartUp : MonoBehaviour
         UpdateSystems
             .Add(new PlayerInitSystem())
             .Add(new PlayerGroundCheckSystem())
-
+            .Add(new PlayerWallCheckSystem())
             .Add(new PlayerInputSystem())
             .Add(new PlayerAttackSystem())
             .Add(new PlayerBlockAttackSystem())
             .Add(new PlayerWallSlideingSystem())
             .Add(new PlayerWallJumpSystem())
-            .Add(new PlayerWallCheckSystem())
             .Inject(configuration)
             .Inject(sceneData);
     }
@@ -63,7 +63,8 @@ public class ESCStartUp : MonoBehaviour
     {
         FixedUpdateSystems
             .Add(new PlayerMoveSystem())
-            .Add(new PlayerJumpSystem());
+            .Add(new PlayerJumpSystem())
+            .OneFrame<JumpEvent>();
     }
     // Update is called once per frame
     void Update()
