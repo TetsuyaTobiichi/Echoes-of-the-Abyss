@@ -93,7 +93,6 @@
     <Compile Include="Assets\Scripts\Systems\PlayerBlockAttackSystem.cs" />
     <Compile Include="Assets\Scripts\Components\LookParams.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\PoolingManager\PoolingManger.cs" />
-    <Compile Include="Assets\Scripts\Components\Player\PlayerInputData.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerInitSystem.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\Container\IObjectContainer.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerWallSlideingSystem.cs" />

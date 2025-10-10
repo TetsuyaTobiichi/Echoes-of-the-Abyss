@@ -15,7 +15,6 @@ namespace Systems
             EcsEntity playerEntity = ecsWorld.NewEntity();
 
             ref var player = ref playerEntity.Get<Player>();
-            ref var inputData = ref playerEntity.Get<PlayerInputData>();
             ref var moveInfo = ref playerEntity.Get<MoveInfo>();
             ref var JumpInfo = ref playerEntity.Get<JumpInfo>();
             ref var EntityInfo = ref playerEntity.Get<EntityInfo>();
@@ -27,14 +26,22 @@ namespace Systems
 
             GameObject playerGO = Object.Instantiate(staticData.PlayerPrefab, sceneData.playerSpawnPoint.position, Quaternion.identity);
             EntityInfo.PlayerRigidbody = playerGO.GetComponent<Rigidbody2D>();
+
+            //player controll info
+            ///speed
             moveInfo.MoveSpeed = staticData.PlayerMoveSpeed;
+            WallSlide.SlideMaxSpeed = 0.2f;
+            ///forces
             JumpInfo.JumpForce = staticData.PlayerJumpForce;
+            Dash.DashForce = 5f;
+            ///infos
             player.AttackSettings = staticData.AttackSettings;
             LookParams.LookDirection = Vector2.right;
-            Dash.DashForce = 5f;
+
+
+            //
             //TODO: think how automate it
             GroundChecker.CheckerPosition = new Vector3(0, 0.265f, 0);
-            WallSlide.SlideMaxSpeed = 0.2f;
             WallChecker.CheckerPosition = new Vector3(0, 0.75f, 0);
         }
     }

@@ -64,7 +64,8 @@ public class ESCStartUp : MonoBehaviour
         FixedUpdateSystems
             .Add(new PlayerMoveSystem())
             .Add(new PlayerJumpSystem())
-            .OneFrame<JumpEvent>();
+            .OneFrame<JumpEvent>()
+            .OneFrame<AttackEvent>();
     }
     // Update is called once per frame
     void Update()

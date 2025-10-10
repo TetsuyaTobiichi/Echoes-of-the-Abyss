@@ -7,7 +7,7 @@ namespace Systems
 {
     public class PlayerInputSystem : IEcsInitSystem
     {
-        private EcsFilter<Player, PlayerInputData> _filter;
+        private EcsFilter<Player> _filter;
         private IInputSystem _inputSystem;
 
         private EcsEntity _player;
@@ -59,8 +59,7 @@ namespace Systems
         /// <param name="idx"></param>
         private void OnAttackPerforemed(CallbackContext context, int idx)
         {
-            ref var inputRef = ref _player.Get<PlayerInputData>();
-            inputRef.IsAttacked = true;
+            ref var inputRef = ref _player.Get<AttackEvent>();
         }
 
         private void OnDashPerformed(CallbackContext context, int idx)
