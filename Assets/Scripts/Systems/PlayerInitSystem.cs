@@ -1,4 +1,5 @@
 using Components;
+using Constants;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Systems
             EcsEntity playerEntity = ecsWorld.NewEntity();
 
             ref var player = ref playerEntity.Get<Player>();
+            ref var attackInfo = ref playerEntity.Get<AttackSettings>();
             ref var moveInfo = ref playerEntity.Get<MoveInfo>();
             ref var JumpInfo = ref playerEntity.Get<JumpInfo>();
             ref var EntityInfo = ref playerEntity.Get<EntityInfo>();
@@ -35,7 +37,7 @@ namespace Systems
             JumpInfo.JumpForce = staticData.PlayerJumpForce;
             Dash.DashForce = 5f;
             ///infos
-            player.AttackSettings = staticData.AttackSettings;
+            attackInfo = staticData.AttackSettings;
             LookParams.LookDirection = Vector2.right;
 
 

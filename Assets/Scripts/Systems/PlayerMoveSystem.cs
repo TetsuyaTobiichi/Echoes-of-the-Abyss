@@ -16,6 +16,11 @@ namespace Systems
                 ref MoveInfo moveInfo = ref filter.Get3(i);
 
                 entityInfo.PlayerRigidbody.linearVelocityX = moveInfo.DirectionX * moveInfo.MoveSpeed;
+
+                if (moveInfo.DirectionX != 0)
+                {
+                    //set state move
+                }
             }
         }
     }

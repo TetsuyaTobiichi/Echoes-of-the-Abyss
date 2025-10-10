@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Components\EntityInfo.cs" />
+    <Compile Include="Assets\Scripts\Components\Player\PlayerStateData.cs" />
     <Compile Include="Assets\Scripts\IDNWhatIsItNow\Components\PoolingManager\IPoolingManager.cs" />
     <Compile Include="Assets\Scripts\Components\Dash.cs" />
     <Compile Include="Assets\Scripts\Events\JumpEvent.cs" />

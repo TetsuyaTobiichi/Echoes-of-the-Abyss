@@ -1,11 +1,13 @@
 using Components;
 using Components.Events;
 using Leopotam.Ecs;
-using Mono.Cecil.Cil;
 using UnityEngine;
 
 namespace Systems
 {
+    /// <summary>
+    /// TODO: addBlockDash system
+    /// </summary>
     public class DashSystem : IEcsRunSystem
     {
         private EcsFilter<EntityInfo, LookParams, Dash, DashEvent> filter;
@@ -22,9 +24,8 @@ namespace Systems
                 ref var block = ref filter.GetEntity(i).Get<BlockMove>();
                 entityInfo.PlayerRigidbody.AddForce(lookParams.LookDirection * dashInfo.DashForce, ForceMode2D.Impulse);
 
-                Debug.Log($"here+{(lookParams.LookDirection + Vector2.up)} " + lookParams.LookDirection + "  " + dashInfo.DashForce);
+                Debug.Log($"DashSystem: dash direction {(lookParams.LookDirection + Vector2.up)} " + lookParams.LookDirection + "  " + dashInfo.DashForce);
                 block.Time = 0.2f;
-
             }
         }
     }
