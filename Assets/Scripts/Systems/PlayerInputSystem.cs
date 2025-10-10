@@ -52,20 +52,15 @@ namespace Systems
         {
             _player.Get<JumpEvent>();
         }
-        /// <summary>
-        /// TODO: remake on AttackEvent n dashEvent
-        /// </summary>
-        /// <param name="context"></param>
-        /// <param name="idx"></param>
+
         private void OnAttackPerforemed(CallbackContext context, int idx)
         {
-            ref var inputRef = ref _player.Get<AttackEvent>();
+            _player.Get<AttackEvent>();
         }
 
         private void OnDashPerformed(CallbackContext context, int idx)
         {
-            ref var dashInfo = ref _player.Get<Dash>();
-            dashInfo.IsDashing = true;
+            _player.Get<DashEvent>();
         }
 
     }

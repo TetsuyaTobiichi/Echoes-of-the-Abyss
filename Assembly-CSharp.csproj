@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\ESCStartUp.cs" />
     <Compile Include="Assets\Scripts\Systems\DashSystem.cs" />
     <Compile Include="Assets\Scripts\Components\GroundChecker.cs" />
+    <Compile Include="Assets\Scripts\Events\DashEvent.cs" />
     <Compile Include="Assets\Scripts\Components\WallSlide.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerWallJumpSystem.cs" />
     <Compile Include="Assets\Scripts\Systems\PlayerWallCheckSystem.cs" />

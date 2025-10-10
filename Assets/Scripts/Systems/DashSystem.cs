@@ -1,4 +1,5 @@
 using Components;
+using Components.Events;
 using Leopotam.Ecs;
 using Mono.Cecil.Cil;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace Systems
 {
     public class DashSystem : IEcsRunSystem
     {
-        private EcsFilter<EntityInfo, LookParams, Dash> filter;
+        private EcsFilter<EntityInfo, LookParams, Dash, DashEvent> filter;
 
         public void Run()
         {
@@ -17,14 +18,13 @@ namespace Systems
                 ref LookParams lookParams = ref filter.Get2(i);
                 ref Dash dashInfo = ref filter.Get3(i);
 
-                if (dashInfo.IsDashing)
-                {
-                    ref var block = ref filter.GetEntity(i).Get<BlockMove>();
-                    entityInfo.PlayerRigidbody.AddForce(lookParams.LookDirection * dashInfo.DashForce, ForceMode2D.Impulse);
-                    dashInfo.IsDashing = false;
-                    Debug.Log($"here+{(lookParams.LookDirection + Vector2.up)} " + lookParams.LookDirection + "  " + dashInfo.DashForce);
-                    block.Time = 0.2f;
-                }
+
+                ref var block = ref filter.GetEntity(i).Get<BlockMove>();
+                entityInfo.PlayerRigidbody.AddForce(lookParams.LookDirection * dashInfo.DashForce, ForceMode2D.Impulse);
+
+                Debug.Log($"here+{(lookParams.LookDirection + Vector2.up)} " + lookParams.LookDirection + "  " + dashInfo.DashForce);
+                block.Time = 0.2f;
+
             }
         }
     }

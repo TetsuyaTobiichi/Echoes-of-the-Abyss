@@ -9,8 +9,8 @@ namespace Systems
     public class PlayerAttackSystem : IEcsRunSystem
     {
         private EcsFilter<Player, LookParams, EntityInfo, AttackEvent>.Exclude<BlockAttack> filter;
-        private IObjectsContainer container;
         private static int mask = ~LayerMask.GetMask("Player");
+
         public void Run()
         {
             foreach (var i in filter)
